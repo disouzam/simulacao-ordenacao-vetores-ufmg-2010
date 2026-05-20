@@ -1,9 +1,11 @@
+Attribute VB_Name = "ORDENAÇÃO"
 Option Explicit
 Public n As Long 'Tamanho do vetor
 Public k As Long 'Número de repetições da ordenação
 Public CONT As Long 'Contador
 
 Sub METODO_ORDENACAO() 'Rotina que realiza a ordenação de um vetor de n posições, por k vezes
+Attribute METODO_ORDENACAO.VB_ProcData.VB_Invoke_Func = "O\n14"
     'Declaração de variáveis
     Dim i As Long 'Índice do vetor
     Dim j As Long 'Índice do vetor

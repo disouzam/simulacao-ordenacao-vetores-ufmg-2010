@@ -1,3 +1,20 @@
+VERSION 5.00
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} JANELA_DADOS_ENTRADA 
+   Caption         =   "Ordenação - Dados de entrada"
+   ClientHeight    =   2535
+   ClientLeft      =   45
+   ClientTop       =   345
+   ClientWidth     =   5685
+   OleObjectBlob   =   "JANELA_DADOS_ENTRADA.frx":0000
+   StartUpPosition =   1  'CenterOwner
+End
+Attribute VB_Name = "JANELA_DADOS_ENTRADA"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
 Private Sub BOTAO_CANCELAR_Click() 'Rotina do botão Cancelar
     Unload JANELA_DADOS_ENTRADA
 End Sub
@@ -33,4 +50,5 @@ Private Sub BOTAO_INICIAR_Click() 'Rotina do botão Iniciar testes de ordenaçã
     End If
     Unload JANELA_DADOS_ENTRADA
     Call METODO_ORDENACAO 'Chama rotina para realizar testes de ordenação de vetores
+    Testes.Activate
 End Sub
