@@ -1,4 +1,4 @@
-Attribute VB_Name = "ORDENAÇÃO"
+Attribute VB_Name = "SortingMod"
 Option Explicit
 Public n As Long 'Tamanho do vetor
 Public k As Long 'Número de repetições da ordenação
