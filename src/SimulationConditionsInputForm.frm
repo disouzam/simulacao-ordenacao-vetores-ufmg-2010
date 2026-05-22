@@ -1,25 +1,27 @@
 VERSION 5.00
-Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} JANELA_DADOS_ENTRADA 
+Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} SimulationConditionsInputForm 
    Caption         =   "Ordenação - Dados de entrada"
    ClientHeight    =   2535
    ClientLeft      =   45
    ClientTop       =   345
    ClientWidth     =   5685
-   OleObjectBlob   =   "JANELA_DADOS_ENTRADA.frx":0000
+   OleObjectBlob   =   "SimulationConditionsInputForm.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
-Attribute VB_Name = "JANELA_DADOS_ENTRADA"
+Attribute VB_Name = "SimulationConditionsInputForm"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Sub BOTAO_CANCELAR_Click() 'Rotina do botão Cancelar
-    Unload JANELA_DADOS_ENTRADA
+Private Sub BOTAO_CANCELAR_Click()
+' Rotina do botão Cancelar
+    Unload SimulationConditionsInputForm
 End Sub
 
-Private Sub BOTAO_INICIAR_Click() 'Rotina do botão Iniciar testes de ordenação
+Private Sub BOTAO_INICIAR_Click()
+' Rotina do botão Iniciar testes de ordenação
     Application.ScreenUpdating = True 'Ativa atualização de tela
     
     'Verificação do valor digitado para o tamanho do vetor
@@ -48,7 +50,7 @@ Private Sub BOTAO_INICIAR_Click() 'Rotina do botão Iniciar testes de ordenaçã
     Else
         k = TEXT_REPETICOES.Value 'k recebeo o valor digitado para o número de repetições
     End If
-    Unload JANELA_DADOS_ENTRADA
+    Unload SimulationConditionsInputForm
     Call METODO_ORDENACAO 'Chama rotina para realizar testes de ordenação de vetores
     Testes.Activate
 End Sub

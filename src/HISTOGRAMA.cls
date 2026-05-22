@@ -9,12 +9,14 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
 Option Explicit
 
-Private Sub BOTAO_EXEC_ORDENAR_Click() 'Rotina do botão presente na planilha
-    Load JANELA_DADOS_ENTRADA 'Carrega janela para entrada de parâmetros
-    JANELA_DADOS_ENTRADA.Show
+Private Sub Run_Bubble_Sort_Click()
+' Execute actions when button at spreadsheet HISTOGRAMA is pressed
+    Load SimulationConditionsInputForm
+    SimulationConditionsInputForm.Show
 End Sub
 
-Private Sub Worksheet_Activate() 'Rotina para exibição correta da tabela de dados
+Private Sub Worksheet_Activate()
+' Scroll to first row and first column on worksheet activation
     ActiveWindow.ScrollColumn = 1
     ActiveWindow.ScrollRow = 1
 End Sub
