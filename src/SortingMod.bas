@@ -15,17 +15,17 @@ Attribute METODO_ORDENACAO.VB_ProcData.VB_Invoke_Func = "O\n14"
     Dim V() As Single 'Vetor para realizar a ordenação
     
     Application.ScreenUpdating = False
-    HISTOGRAMA.Cells(5, 10).Value = n 'Escreve na célula (5,10) da planilha o tamanho do vetor
+    HistogramSheet.Cells(5, 10).Value = n 'Escreve na célula (5,10) da planilha o tamanho do vetor
     Xmax = n * (n - 1) / 2 'Calcula o número máximo possível de trocas
-    HISTOGRAMA.Cells(6, 10).Value = Xmax 'Escreve na célula (6,10) o valor de Xmax
-    HISTOGRAMA.Cells(7, 10).Value = k 'Escreve na célula (7,10) o valor de k
+    HistogramSheet.Cells(6, 10).Value = Xmax 'Escreve na célula (6,10) o valor de Xmax
+    HistogramSheet.Cells(7, 10).Value = k 'Escreve na célula (7,10) o valor de k
     
     'Preenchimento da tabela de frequências na planilha
-    HISTOGRAMA.Select
-    HISTOGRAMA.Range(Cells(3, 2), Cells(65536, 6)).ClearContents
+    HistogramSheet.Select
+    HistogramSheet.Range(Cells(3, 2), Cells(65536, 6)).ClearContents
     For CONT = 0 To Xmax
-        HISTOGRAMA.Cells(CONT + 3, 2).Value = CONT
-        HISTOGRAMA.Cells(CONT + 3, 3).Value = 0
+        HistogramSheet.Cells(CONT + 3, 2).Value = CONT
+        HistogramSheet.Cells(CONT + 3, 3).Value = 0
     Next CONT
     
     'Dimensionamento do vetor V
@@ -58,17 +58,17 @@ Attribute METODO_ORDENACAO.VB_ProcData.VB_Invoke_Func = "O\n14"
                 End If
             Next j
         Next i
-        HISTOGRAMA.Cells(Ntrocas + 3, 3).Value = HISTOGRAMA.Cells(Ntrocas + 3, 3).Value + 1 'Conta o número de trocas e escreve na planilha
+        HistogramSheet.Cells(Ntrocas + 3, 3).Value = HistogramSheet.Cells(Ntrocas + 3, 3).Value + 1 'Conta o número de trocas e escreve na planilha
     Next CONT
     Call CALCULOS_ESTATISTICOS 'Chama rotina para realizar cálculo de média, variância e desvio padrão
 End Sub
 
 Sub CALCULOS_ESTATISTICOS() 'Rotina que realiza cálculo de média, variância e desvio padrão
     Dim LMAX As Long 'Número da última linha da tabela de frequência
-    HISTOGRAMA.Activate
+    HistogramSheet.Activate
     'Pesquisa da última linha preenchida da tabela de frequência
-    If IsEmpty(HISTOGRAMA.Cells(65536, 2)) Then
-        HISTOGRAMA.Cells(65536, 2).Select
+    If IsEmpty(HistogramSheet.Cells(65536, 2)) Then
+        HistogramSheet.Cells(65536, 2).Select
         Selection.End(xlUp).Select
         LMAX = Selection.Row
     Else
@@ -77,19 +77,19 @@ Sub CALCULOS_ESTATISTICOS() 'Rotina que realiza cálculo de média, variância e
     
     'Cálculo da frequência relativa e do produto xi*pi para cálculo da média
     For CONT = 3 To LMAX
-        HISTOGRAMA.Cells(CONT, 4).Value = HISTOGRAMA.Cells(CONT, 3) / HISTOGRAMA.Cells(7, 10) 'Cálculo da frequência relativa
-        HISTOGRAMA.Cells(CONT, 5).Value = HISTOGRAMA.Cells(CONT, 2) * HISTOGRAMA.Cells(CONT, 4) ' Cálculo do produto xi*pi
+        HistogramSheet.Cells(CONT, 4).Value = HistogramSheet.Cells(CONT, 3) / HistogramSheet.Cells(7, 10) 'Cálculo da frequência relativa
+        HistogramSheet.Cells(CONT, 5).Value = HistogramSheet.Cells(CONT, 2) * HistogramSheet.Cells(CONT, 4) ' Cálculo do produto xi*pi
     Next CONT
     
-    HISTOGRAMA.Cells(8, 10).Select
+    HistogramSheet.Cells(8, 10).Select
     ActiveCell.FormulaR1C1 = "=SUM(R3C5:R65536C5)" 'Cálculo da média
     'Cálculo dos termos do somatório para cálculo da variância
     For CONT = 3 To LMAX
-        HISTOGRAMA.Cells(CONT, 6).Value = ((HISTOGRAMA.Cells(CONT, 2) - HISTOGRAMA.Cells(8, 10)) ^ 2) * (HISTOGRAMA.Cells(CONT, 4))
+        HistogramSheet.Cells(CONT, 6).Value = ((HistogramSheet.Cells(CONT, 2) - HistogramSheet.Cells(8, 10)) ^ 2) * (HistogramSheet.Cells(CONT, 4))
     Next CONT
-    HISTOGRAMA.Cells(9, 10).Select
+    HistogramSheet.Cells(9, 10).Select
     ActiveCell.FormulaR1C1 = "=SUM(R3C6:R65536C6)" 'Cálculo da variância
-    HISTOGRAMA.Cells(10, 10).Select
+    HistogramSheet.Cells(10, 10).Select
     ActiveCell.FormulaR1C1 = "=SQRT(R[-1]C)" 'Cálculo do desvio padrão
 
 End Sub
@@ -101,5 +101,5 @@ Sub NUMERO_ALEATORIO(B As Single) 'Rotina para criar um histograma da distribui�
     ALEATORIO = Round(B, 4)
     LINHA = ALEATORIO / 0.0001
     LINHA = LINHA + 5
-    HISTOGRAMA.Cells(LINHA, 17).Value = HISTOGRAMA.Cells(LINHA, 17) + 1
+    HistogramSheet.Cells(LINHA, 17).Value = HistogramSheet.Cells(LINHA, 17) + 1
 End Sub

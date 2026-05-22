@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "HISTOGRAMA"
+Attribute VB_Name = "HistogramSheet"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -10,7 +10,7 @@ Attribute VB_Exposed = True
 Option Explicit
 
 Private Sub Run_Bubble_Sort_Click()
-' Execute actions when button at spreadsheet HISTOGRAMA is pressed
+' Execute actions when button at spreadsheet HistogramSheet is pressed
     Load SimulationConditionsInputForm
     SimulationConditionsInputForm.Show
 End Sub
